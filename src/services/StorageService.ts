@@ -3,7 +3,7 @@ import { Client } from "../models/Client";
 export default class StorageService{
 
     static saveClient(client:Client){
-        const cookie=useCookie<Client>("client", {sameSite:"lax"});
+        const cookie=useCookie<Client>("client", {sameSite:"none", secure:true, httpOnly:true});
         cookie.value=client;
     }
 
